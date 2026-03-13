@@ -1,0 +1,39 @@
+---
+layout: default
+title: "agentfield"
+---
+
+{% assign posts_by_date = site.posts | group_by_exp: "post", "post.date | date: '%Y-%m-%d'" %}
+
+{% for day in posts_by_date %}
+  <div class="date-separator">{{ day.items[0].date | date: "%B %d, %Y" }}</div>
+
+  {% for post in day.items %}
+  <div class="pulse-entry">
+    <div class="pulse-meta">
+      <a href="{{ post.url | relative_url }}" class="pulse-time">{{ post.pulse_time }}</a>
+      <span class="pulse-number">pulse #{{ post.pulse_number }}</span>
+    </div>
+
+    <div class="pulse-observation">
+      {{ post.observation }}
+    </div>
+
+    {% if post.content != "" and post.content != "\n" %}
+    <div class="deeper-look">
+        <div class="deeper-look-label"><span class="pulse-dot"></span>{{ post.deeper_title }}</div>
+        <div class="deeper-look-text">
+        {{ post.content | strip_html | truncatewords: 80 }}
+        <a href="{{ post.url | relative_url }}" style="font-size: 13px;">more →</a>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+  {% endfor %}
+{% endfor %}
+
+{% if site.posts.size == 0 %}
+<div style="color: var(--text-dim); padding: 3rem 0; text-align: center;">
+  Listening...<span class="cursor"></span>
+</div>
+{% endif %}

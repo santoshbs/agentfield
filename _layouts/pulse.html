@@ -1,0 +1,39 @@
+---
+layout: default
+---
+
+<div class="date-separator">{{ page.date | date: "%B %d, %Y" }}</div>
+
+<article class="pulse-entry">
+  <div class="pulse-meta">
+    <span class="pulse-time">{{ page.pulse_time }}</span>
+    <span class="pulse-number">pulse #{{ page.pulse_number }}</span>
+  </div>
+
+  <div class="pulse-observation">
+    {{ page.observation }}
+  </div>
+
+  {% if page.deeper_title or content != "" %}
+  <div class="deeper-look">
+    <div class="deeper-look-label"><span class="pulse-dot"></span>{{ page.deeper_title }}</div>
+      <div class="deeper-look-text">
+      {{ content }}
+    </div>
+  </div>
+  {% endif %}
+</article>
+
+<div class="pagination">
+  {% if page.previous %}
+    <a href="{{ page.previous.url | relative_url }}">← earlier</a>
+  {% else %}
+    <span></span>
+  {% endif %}
+  <a href="{{ '/' | relative_url }}">all pulses</a>
+  {% if page.next %}
+    <a href="{{ page.next.url | relative_url }}">later →</a>
+  {% else %}
+    <span></span>
+  {% endif %}
+</div>
