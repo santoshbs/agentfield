@@ -5,10 +5,12 @@ layout: default
 <div class="date-separator">{{ page.date | date: "%B %d, %Y" }}</div>
 
 <article class="pulse-entry">
-  <div class="pulse-meta">
-    <span class="pulse-time">{{ page.pulse_time }}</span>
-    <span class="pulse-number">pulse #{{ page.pulse_number }}</span>
-  </div>
+<div class="pulse-meta">
+  <span class="pulse-time">{{ page.pulse_time }}</span>
+  <span class="pulse-number">pulse #{{ page.pulse_number }}</span>
+  {% if page.model %}<span class="pulse-model">{{ page.model }}</span>{% endif %}
+</div>
+
 
   <div class="pulse-observation">
     {{ page.observation }}

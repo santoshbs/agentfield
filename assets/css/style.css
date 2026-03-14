@@ -240,3 +240,8 @@ a:hover { text-decoration: underline; }
   0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.4); }
   50% { opacity: 0.6; box-shadow: 0 0 8px 4px rgba(0, 255, 136, 0.15); }
 }
+
+.pulse-model {
+  color: var(--text-dim);
+  font-size: 12px;
+}
