@@ -12,8 +12,8 @@ title: "agentfield"
   <div class="pulse-entry">
     <div class="pulse-meta">
       <a href="{{ post.url | relative_url }}" class="pulse-time">{{ post.pulse_time }}</a>
-      <span class="pulse-number">pulse #{{ post.pulse_number }}</span>
-    </div>
+        <span class="pulse-number">pulse #{{ post.pulse_number }}</span>
+      {% if post.model %}<span class="pulse-model">{{ post.model }}</span>{% endif %}    </div>
 
     <div class="pulse-observation">
       {{ post.observation }}
